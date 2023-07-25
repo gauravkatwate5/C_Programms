@@ -1,27 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-bool Check11(int *Arr, int iLength)
+int Maximum(int *Arr, int iLength)
 {
-    int iCnt = 0;
-    bool Flag = false;
+    int iCnt = 0, iMax = *Arr;
 
     for (iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if (*Arr == 11)
+        if (iMax < *Arr)
         {
-            Flag = true;
+            iMax = *Arr;
         }
         Arr++;
     }
 
-    return Flag;
+    return iMax;
 }
 
 int main()
 {
-    int iNo = 0, iCnt = 0;
+    int iNo = 0, iCnt = 0, iNo1 = 0, iRet = 0;
     int *Arr = NULL;
 
     printf("Enter The Count of Element : \n");
@@ -42,14 +40,9 @@ int main()
         scanf("%d", &Arr[iCnt]);
     }
 
-    if (Check11(Arr, iNo))
-    {
-        printf("11 is prsent\n");
-    }
-    else
-    {
-        printf("11 is Absent\n");
-    }
+    iRet = Maximum(Arr, iNo);
+
+    printf("Maximum element is %d \n", iRet);
 
     free(Arr);
 

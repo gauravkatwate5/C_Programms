@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-bool Check11(int *Arr, int iLength)
+bool Check11(int *Arr, int iLength, int iNo)
 {
     int iCnt = 0;
     bool Flag = false;
 
     for (iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if (*Arr == 11)
+        if (*Arr == iNo)
         {
             Flag = true;
         }
@@ -21,7 +21,7 @@ bool Check11(int *Arr, int iLength)
 
 int main()
 {
-    int iNo = 0, iCnt = 0;
+    int iNo = 0, iCnt = 0, iNo1 = 0;
     int *Arr = NULL;
 
     printf("Enter The Count of Element : \n");
@@ -42,13 +42,16 @@ int main()
         scanf("%d", &Arr[iCnt]);
     }
 
-    if (Check11(Arr, iNo))
+    printf("Enter The Number : \n");
+    scanf("%d", &iNo1);
+
+    if (Check11(Arr, iNo, iNo1))
     {
-        printf("11 is prsent\n");
+        printf("%d is prsent\n", iNo1);
     }
     else
     {
-        printf("11 is Absent\n");
+        printf("%d is Absent\n", iNo1);
     }
 
     free(Arr);

@@ -1,22 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-bool Check11(int *Arr, int iLength)
+void DigitSum(int *Arr, int iLength)
 {
-    int iCnt = 0;
-    bool Flag = false;
+    int iCnt = 0, iTemp = 0, iSum = 0;
 
     for (iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if (*Arr == 11)
+        iTemp = *Arr;
+
+        while (iTemp != 0)
         {
-            Flag = true;
+            iSum = iSum + (iTemp % 10);
+            iTemp = iTemp / 10;
         }
+
+        printf("%d\t", iSum);
+        iSum = 0;
         Arr++;
     }
-
-    return Flag;
 }
 
 int main()
@@ -42,14 +44,7 @@ int main()
         scanf("%d", &Arr[iCnt]);
     }
 
-    if (Check11(Arr, iNo))
-    {
-        printf("11 is prsent\n");
-    }
-    else
-    {
-        printf("11 is Absent\n");
-    }
+    DigitSum(Arr, iNo);
 
     free(Arr);
 

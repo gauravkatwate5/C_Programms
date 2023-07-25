@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-bool Check11(int *Arr, int iLength)
+int LastOcc(int *Arr, int iLength, int iNo)
 {
-    int iCnt = 0;
-    bool Flag = false;
+    int iCnt = 0, Flag = -1;
 
     for (iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if (*Arr == 11)
+        if (*Arr == iNo)
         {
-            Flag = true;
+            Flag = iCnt;
         }
         Arr++;
     }
@@ -21,7 +19,7 @@ bool Check11(int *Arr, int iLength)
 
 int main()
 {
-    int iNo = 0, iCnt = 0;
+    int iNo = 0, iCnt = 0, iNo1 = 0, iRet = 0;
     int *Arr = NULL;
 
     printf("Enter The Count of Element : \n");
@@ -42,13 +40,18 @@ int main()
         scanf("%d", &Arr[iCnt]);
     }
 
-    if (Check11(Arr, iNo))
+    printf("Enter The Number : \n");
+    scanf("%d", &iNo1);
+
+    iRet = LastOcc(Arr, iNo, iNo1);
+
+    if (iRet == -1)
     {
-        printf("11 is prsent\n");
+        printf("%d Not Available int the Array \n", iNo1);
     }
     else
     {
-        printf("11 is Absent\n");
+        printf("Last Occurence of %d number is %d index\n", iNo1, iRet);
     }
 
     free(Arr);

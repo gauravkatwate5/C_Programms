@@ -1,27 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-bool Check11(int *Arr, int iLength)
+void Range(int *Arr, int iLength, int Start, int End)
 {
     int iCnt = 0;
-    bool Flag = false;
 
     for (iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if (*Arr == 11)
+        if ((*Arr >= Start) && (*Arr <= End))
         {
-            Flag = true;
+            printf("%d\t", *Arr);
         }
         Arr++;
     }
-
-    return Flag;
 }
 
 int main()
 {
-    int iNo = 0, iCnt = 0;
+    int iNo = 0, iCnt = 0, iStart = 0, iEnd = 0;
     int *Arr = NULL;
 
     printf("Enter The Count of Element : \n");
@@ -42,14 +38,13 @@ int main()
         scanf("%d", &Arr[iCnt]);
     }
 
-    if (Check11(Arr, iNo))
-    {
-        printf("11 is prsent\n");
-    }
-    else
-    {
-        printf("11 is Absent\n");
-    }
+    printf("Enter The Start Point : \n");
+    scanf("%d", &iStart);
+
+    printf("Enter The End Point : \n");
+    scanf("%d", &iEnd);
+
+    Range(Arr, iNo, iStart, iEnd);
 
     free(Arr);
 
