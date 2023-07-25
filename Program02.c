@@ -6,7 +6,7 @@ void Display(int ino)
 
     for (iCnt = 1; iCnt <= ino; iCnt++)
     {
-        printf("Hello World\n");
+        printf("Hello World!\n");
     }
 }
 

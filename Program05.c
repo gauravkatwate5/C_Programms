@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void print(int iNo)
+void Display(int iNo)
 {
     int iCnt = 0;
 
@@ -17,7 +17,7 @@ int main()
     printf("Enter Any Number : \n");
     scanf("%d", &iNo);
 
-    print(iNo);
+    Display(iNo);
 
     return 0;
 }

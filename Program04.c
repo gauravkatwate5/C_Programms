@@ -22,11 +22,11 @@ int main()
 
     if (Check(iNo))
     {
-        printf("Given Number Divisible by 5");
+        printf("Given Number Divisible by 5\n");
     }
     else
     {
-        printf("Given Number Not Divisible by 5");
+        printf("Given Number Not Divisible by 5\n");
     }
 
     return 0;
