@@ -31,26 +31,6 @@ void InsertFirst(PPNODE first, int no)
     }
 }
 
-void InsertLast(PPNODE first, int no)
-{
-}
-
-void InsertAtPos(PPNODE first, int no, int ipos)
-{
-}
-
-void DeleteFirst(PPNODE first)
-{
-}
-
-void DeleteLast(PPNODE first)
-{
-}
-
-void DeleteAtPos(PPNODE first, int ipos)
-{
-}
-
 int Count(PNODE first)
 {
     int iCnt = 0;
@@ -75,17 +55,46 @@ void Display(PNODE first)
     printf("NULL\n");
 }
 
+int SearchFirstOcc(PNODE first, int ino)
+{
+    int iCnt = 1;
+
+    while (first != NULL)
+    {
+        if (first->data == ino)
+        {
+            break;
+        }
+        iCnt++;
+        first = first->next;
+    }
+
+    return iCnt;
+}
+
 int main()
 {
     PNODE head = NULL;
+    int iNo = 0, iRet = 0;
 
-    InsertFirst(&head, 11);
+    InsertFirst(&head, 10);
+    InsertFirst(&head, 20);
+    InsertFirst(&head, 30);
+    InsertFirst(&head, 40);
+    InsertFirst(&head, 50);
+    InsertFirst(&head, 30);
+    InsertFirst(&head, 70);
+    InsertFirst(&head, 80);
     Display(head);
 
-    InsertFirst(&head, 21);
-    Display(head);
+    printf("Count is : %d\n\n", Count(head));
 
-    printf("Count is : %d", Count(head));
+    printf("Enter The Element To Serch First Occurance of That  Number : \n");
+    scanf("%d", &iNo);
+
+    iRet = SearchFirstOcc(head, iNo);
+
+    printf("First occurence of given number is : %d", iRet);
 
     return 0;
 }
